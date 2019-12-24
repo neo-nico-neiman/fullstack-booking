@@ -1,7 +1,5 @@
 package DataBase;
-
 import Program.RoomType;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,7 +35,14 @@ public class RoomTypeDAO {
 			String roomDescription = rs.getString("room_description");
 			String roomDetails = rs.getString("room_details");
 
-			roomType.setRoomType(category, maxGuestAllowance, pricePerNight, imgURL, roomDetails, roomDescription);
+			roomType.setRoomType(
+					category,
+					maxGuestAllowance, 
+					pricePerNight, 
+					imgURL, 
+					roomDetails, 
+					roomDescription
+					);
 
 			con.close();
 			st.close();
@@ -67,7 +72,8 @@ public class RoomTypeDAO {
 	public void updateCategoryName(String categoryName, String newName) {
 		connect();
 		try {
-			String query = "UPDATE room_type SET category_name=? WHERE category_name= ?";
+			String query = "UPDATE room_type SET category_name=?"
+							+" WHERE category_name= ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, categoryName);
 			pst.setString(2, newName);
@@ -83,7 +89,8 @@ public class RoomTypeDAO {
 	public void updatePPNight(String categoryName, double pPNight) {
 		connect();
 		try {
-			String query = "UPDATE room_type SET price_per_night=? WHERE category_name= ?";
+			String query = "UPDATE room_type SET price_per_night=? "
+							+"WHERE category_name= ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setDouble(1, pPNight);
 			pst.setString(2, categoryName);
@@ -99,7 +106,8 @@ public class RoomTypeDAO {
 	public void updateMaxAllowance(String categoryName, int maxAllowance) {
 		connect();
 		try {
-			String query = "UPDATE room_type SET max_allowance=? WHERE category_name= ?";
+			String query = "UPDATE room_type SET max_allowance=? "
+							+"WHERE category_name= ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setDouble(1, maxAllowance);
 			pst.setString(2, categoryName);
@@ -115,7 +123,8 @@ public class RoomTypeDAO {
 	public void updateImg(String categoryName, String imgURL) {
 		connect();
 		try {
-			String query = "UPDATE room_type SET image=? WHERE category_name= ?";
+			String query = "UPDATE room_type SET image=? "
+							+"WHERE category_name= ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, imgURL);
 			pst.setString(2, categoryName);
@@ -131,7 +140,8 @@ public class RoomTypeDAO {
 	public void updateRoomDescription(String categoryName, String roomDescription) {
 		connect();
 		try {
-			String query = "UPDATE room_type SET room_description=? WHERE category_name= ?";
+			String query = "UPDATE room_type SET room_description=? "
+							+"WHERE category_name= ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, roomDescription);
 			pst.setString(2, categoryName);
@@ -147,7 +157,8 @@ public class RoomTypeDAO {
 	public void updateRoomDetails(String categoryName, String roomDetails) {
 		connect();
 		try {
-			String query = "UPDATE room_type SET room_details=? WHERE category_name= ?";
+			String query = "UPDATE room_type SET room_details=? "
+							+"WHERE category_name= ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, roomDetails);
 			pst.setString(2, categoryName);

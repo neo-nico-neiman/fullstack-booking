@@ -25,9 +25,13 @@ public class BookingDao {
 		try {
 
 			// get values from DataBase
-			String query = "SELECT  b.id, b.check_in, b.check_out, b.nights, b.ppn, b.tax, b.total, u.first_name, u.last_name, u.email, u.phone, r.room_number "
-					+ "FROM bookings AS b JOIN user AS u " + "ON b.user_id=u.id" + " JOIN rooms AS r "
-					+ "ON b.room_number=r.room_number" + " WHERE b.id=" + id;
+			String query = "SELECT  b.id, b.check_in, b.check_out, b.nights, b.ppn, b.tax, b.total,"
+					+" u.first_name, u.last_name, u.email, u.phone, r.room_number "
+					+ "FROM bookings AS b JOIN user AS u " 
+					+ "ON b.user_id=u.id" 
+					+ " JOIN rooms AS r "
+					+ "ON b.room_number=r.room_number" 
+					+ " WHERE b.id=" + id;
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			rs.next();
