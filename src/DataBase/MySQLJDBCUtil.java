@@ -1,14 +1,11 @@
 package DataBase;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-
 //import java.io.FileInputStream;
 //import java.io.IOException;
-
-import java.sql.*;
 //import java.util.Properties;
-import java.util.Properties;
+import java.sql.*;
+
+
 
 public class MySQLJDBCUtil {
 //    public static Connection getConnection() throws SQLException {

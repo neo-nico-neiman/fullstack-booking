@@ -17,7 +17,9 @@
 	<jsp:include page="Header.jsp" flush="true" />
 	<div class="bg-dark  p-4 mb-3"></div>
 	<div class="tm-container">
-	<div class="w-100"><h4>Our Rooms</h4></div>
+		<div class="w-100">
+			<h4>Our Rooms</h4>
+		</div>
 		<%
 			ArrayList<Room> roomArray = new ArrayList<Room>();
 			RoomDAO rd = new RoomDAO();
@@ -27,13 +29,13 @@
 					r = rd.getRoom(i);
 					roomArray.add(r);
 				}
-				
+
 			} catch (NullPointerException e) {
 				r = null;
 				roomArray.add(r);
 				System.out.println(e);
 			}
-			
+
 			for (int i = 0; i < roomArray.size(); i++) {
 				r = roomArray.get(i);
 				String rDetails = r.getRoomDetails();
@@ -60,6 +62,6 @@
 
 	<jsp:include page="Footer.jsp" flush="true" />
 	<script src="JS/rooms.js"></script>
-	
+
 </body>
 </html>

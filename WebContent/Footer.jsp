@@ -25,7 +25,8 @@
 	<script src="JS/jquery-3.4.1.min.js"></script>
 	<script src="JS/bootstrap.js"></script>
 	<script src="JS/jquery-ui.js"></script>
-	
+	<script src="JS/footer.js"></script>
+
 
 	<p class="text-secondary">&copy; Development and Design</p>
 	<p class="text-secondary">by Nico Neiman 2019</p>

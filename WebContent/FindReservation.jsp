@@ -18,14 +18,14 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	<jsp:include page="Header.jsp" flush="true" />
 	<div class="bg-dark  p-4"></div>
 	<div id="main_content" class="tm-container clearfix px-0 ">
-		
-			
-			<h4 class="mt-4">Let's Find your reservation!</h4>
-			<hr >
-			<form name="findBoo" class="d-flex needs-validation flex-column h-100"
+
+
+		<h4 class="mt-4">Let's Find your reservation!</h4>
+		<hr>
+		<form name="findBoo" class="d-flex needs-validation flex-column h-100"
 			action="BookingExecuter" method="POST" novalidate>
 			<div class="form-row d-flex">
-			
+
 				<div class="form-group col-md-5">
 					<label for="inputBoo">Booking Number</label> <input type="number"
 						class="form-control" id="inputBoo" name="bookingId"
@@ -46,7 +46,7 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 						class="btn btn-outline-dark mr-0 btn-block"
 						onclick="FindReservation()">Search</button>
 				</div>
-				
+
 			</div>
 		</form>
 		<div id="target"></div>
@@ -54,7 +54,7 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
 	<jsp:include page="Footer.jsp" flush="true" />
 	<script src="JS/find.js"></script>
-	
+
 
 </body>
 </html>

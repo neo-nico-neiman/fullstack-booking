@@ -84,20 +84,21 @@
   }
 
   /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.4.1): util.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
-   */
+	 * --------------------------------------------------------------------------
+	 * Bootstrap (v4.4.1): util.js Licensed under MIT
+	 * (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+	 * --------------------------------------------------------------------------
+	 */
   /**
-   * ------------------------------------------------------------------------
-   * Private TransitionEnd Helpers
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Private TransitionEnd Helpers
+	 * ------------------------------------------------------------------------
+	 */
 
   var TRANSITION_END = 'transitionend';
   var MAX_UID = 1000000;
-  var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll
+										// (https://goo.gl/pxwQGp)
 
   function toType(obj) {
     return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
@@ -109,7 +110,8 @@
       delegateType: TRANSITION_END,
       handle: function handle(event) {
         if ($(event.target).is(this)) {
-          return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
+          return event.handleObj.handler.apply(this, arguments); // eslint-disable-line
+																	// prefer-rest-params
         }
 
         return undefined; // eslint-disable-line no-undefined
@@ -137,10 +139,10 @@
     $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
   }
   /**
-   * --------------------------------------------------------------------------
-   * Public Util Api
-   * --------------------------------------------------------------------------
-   */
+	 * --------------------------------------------------------------------------
+	 * Public Util Api
+	 * --------------------------------------------------------------------------
+	 */
 
 
   var Util = {
@@ -148,7 +150,8 @@
     getUID: function getUID(prefix) {
       do {
         // eslint-disable-next-line no-bitwise
-        prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+        prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster
+												// Math.floor() here
       } while (document.getElementById(prefix));
 
       return prefix;
@@ -176,7 +179,11 @@
       var transitionDuration = $(element).css('transition-duration');
       var transitionDelay = $(element).css('transition-delay');
       var floatTransitionDuration = parseFloat(transitionDuration);
-      var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
+      var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if
+																// element or
+																// transition
+																// duration is
+																// not found
 
       if (!floatTransitionDuration && !floatTransitionDelay) {
         return 0;
@@ -256,10 +263,10 @@
   setTransitionEndSupport();
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME = 'alert';
   var VERSION = '4.4.1';
@@ -281,13 +288,13 @@
     SHOW: 'show'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Alert =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Alert(element) {
       this._element = element;
@@ -398,18 +405,18 @@
     return Alert;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(document).on(Event.CLICK_DATA_API, Selector.DISMISS, Alert._handleDismiss(new Alert()));
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME] = Alert._jQueryInterface;
   $.fn[NAME].Constructor = Alert;
@@ -420,10 +427,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$1 = 'button';
   var VERSION$1 = '4.4.1';
@@ -451,13 +458,13 @@
     LOAD_DATA_API: "load" + EVENT_KEY$1 + DATA_API_KEY$1
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Button =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Button(element) {
       this._element = element;
@@ -491,7 +498,8 @@
               triggerChangeEvent = false;
             }
           } else {
-            // if it's not a radio button or checkbox don't add a pointless/invalid checked property to the input
+            // if it's not a radio button or checkbox don't add a
+			// pointless/invalid checked property to the input
             triggerChangeEvent = false;
           }
 
@@ -547,10 +555,10 @@
     return Button;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(document).on(Event$1.CLICK_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
@@ -578,7 +586,8 @@
     $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.test(event.type));
   });
   $(window).on(Event$1.LOAD_DATA_API, function () {
-    // ensure correct active class is set to match the controls' actual values/states
+    // ensure correct active class is set to match the controls' actual
+	// values/states
     // find all checkboxes/readio buttons inside data-toggle groups
     var buttons = [].slice.call(document.querySelectorAll(Selector$1.DATA_TOGGLES_BUTTONS));
 
@@ -607,10 +616,10 @@
     }
   });
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME$1] = Button._jQueryInterface;
   $.fn[NAME$1].Constructor = Button;
@@ -621,10 +630,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$2 = 'carousel';
   var VERSION$2 = '4.4.1';
@@ -636,7 +645,8 @@
 
   var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
 
-  var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
+  var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire
+									// after touch
 
   var SWIPE_THRESHOLD = 40;
   var Default = {
@@ -702,13 +712,13 @@
     PEN: 'pen'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Carousel =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Carousel(element, config) {
       this._items = null;
@@ -905,11 +915,13 @@
 
         if (_this3._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
-          // part of the mouse compatibility events on first tap - the carousel
+          // part of the mouse compatibility events on first tap - the
+			// carousel
           // would stop cycling until user tapped out of it;
           // here, we listen for touchend, explicitly pause the carousel
           // (as if it's the second time we tap on it, mouseenter compat event
-          // is NOT fired) and after a timeout (to allow for mouse compatibility
+          // is NOT fired) and after a timeout (to allow for mouse
+			// compatibility
           // events to fire) we explicitly restart cycling
           _this3.pause();
 
@@ -1188,10 +1200,10 @@
     return Carousel;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(document).on(Event$2.CLICK_DATA_API, Selector$2.DATA_SLIDE, Carousel._dataApiClickHandler);
@@ -1205,10 +1217,10 @@
     }
   });
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME$2] = Carousel._jQueryInterface;
   $.fn[NAME$2].Constructor = Carousel;
@@ -1219,10 +1231,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$3 = 'collapse';
   var VERSION$3 = '4.4.1';
@@ -1260,13 +1272,13 @@
     DATA_TOGGLE: '[data-toggle="collapse"]'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Collapse =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Collapse(element, config) {
       this._isTransitioning = false;
@@ -1540,14 +1552,15 @@
     return Collapse;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(document).on(Event$3.CLICK_DATA_API, Selector$3.DATA_TOGGLE, function (event) {
-    // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
+    // preventDefault only for <a> elements (which change the URL) not inside
+	// the collapsible element
     if (event.currentTarget.tagName === 'A') {
       event.preventDefault();
     }
@@ -1564,10 +1577,10 @@
     });
   });
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME$3] = Collapse._jQueryInterface;
   $.fn[NAME$3].Constructor = Collapse;
@@ -1578,10 +1591,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$4 = 'dropdown';
   var VERSION$4 = '4.4.1';
@@ -1599,7 +1612,8 @@
 
   var ARROW_DOWN_KEYCODE = 40; // KeyboardEvent.which value for down arrow key
 
-  var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
+  var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right
+									// button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
   var Event$4 = {
@@ -1656,13 +1670,13 @@
     popperConfig: '(null|object)'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Dropdown =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Dropdown(element, config) {
       this._element = element;
@@ -1719,9 +1733,8 @@
 
       if (!this._inNavbar && usePopper) {
         /**
-         * Check for Popper dependency
-         * Popper - https://popper.js.org
-         */
+		 * Check for Popper dependency Popper - https://popper.js.org
+		 */
         if (typeof Popper === 'undefined') {
           throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org/)');
         }
@@ -1731,7 +1744,8 @@
         if (this._config.reference === 'parent') {
           referenceElement = parent;
         } else if (Util.isElement(this._config.reference)) {
-          referenceElement = this._config.reference; // Check if it's jQuery element
+          referenceElement = this._config.reference; // Check if it's jQuery
+														// element
 
           if (typeof this._config.reference.jquery !== 'undefined') {
             referenceElement = this._config.reference[0];
@@ -1999,12 +2013,12 @@
 
     Dropdown._dataApiKeydownHandler = function _dataApiKeydownHandler(event) {
       // If not input/textarea:
-      //  - And not a key in REGEXP_KEYDOWN => not a dropdown command
+      // - And not a key in REGEXP_KEYDOWN => not a dropdown command
       // If input/textarea:
-      //  - If space key => not a dropdown command
-      //  - If key is other than escape
-      //    - If key is not up or down => not a dropdown command
-      //    - If trigger inside the menu => not a dropdown command
+      // - If space key => not a dropdown command
+      // - If key is other than escape
+      // - If key is not up or down => not a dropdown command
+      // - If trigger inside the menu => not a dropdown command
       if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $(event.target).closest(Selector$4.MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
         return;
       }
@@ -2081,10 +2095,10 @@
     return Dropdown;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(document).on(Event$4.KEYDOWN_DATA_API, Selector$4.DATA_TOGGLE, Dropdown._dataApiKeydownHandler).on(Event$4.KEYDOWN_DATA_API, Selector$4.MENU, Dropdown._dataApiKeydownHandler).on(Event$4.CLICK_DATA_API + " " + Event$4.KEYUP_DATA_API, Dropdown._clearMenus).on(Event$4.CLICK_DATA_API, Selector$4.DATA_TOGGLE, function (event) {
@@ -2096,10 +2110,10 @@
     e.stopPropagation();
   });
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME$4] = Dropdown._jQueryInterface;
   $.fn[NAME$4].Constructor = Dropdown;
@@ -2110,10 +2124,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$5 = 'modal';
   var VERSION$5 = '4.4.1';
@@ -2121,7 +2135,8 @@
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
   var JQUERY_NO_CONFLICT$5 = $.fn[NAME$5];
-  var ESCAPE_KEYCODE$1 = 27; // KeyboardEvent.which value for Escape (Esc) key
+  var ESCAPE_KEYCODE$1 = 27; // KeyboardEvent.which value for Escape (Esc)
+								// key
 
   var Default$3 = {
     backdrop: true,
@@ -2167,13 +2182,13 @@
     STICKY_CONTENT: '.sticky-top'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Modal =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Modal(element, config) {
       this._config = this._getConfig(config);
@@ -2292,10 +2307,10 @@
         return $(htmlElement).off(EVENT_KEY$5);
       });
       /**
-       * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API`
-       * Do not move `document` in `htmlElements` array
-       * It will remove `Event.CLICK_DATA_API` event that should remain
-       */
+		 * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API` Do
+		 * not move `document` in `htmlElements` array It will remove
+		 * `Event.CLICK_DATA_API` event that should remain
+		 */
 
       $(document).off(Event$5.FOCUSIN);
       $.removeData(this._element, DATA_KEY$5);
@@ -2563,10 +2578,15 @@
       var _this10 = this;
 
       if (this._isBodyOverflowing) {
-        // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
-        //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
+        // Note: DOMNode.style.paddingRight returns the actual value or '' if
+		// not set
+        // while $(DOMNode).css('padding-right') returns the calculated value or
+		// 0 if not set
         var fixedContent = [].slice.call(document.querySelectorAll(Selector$5.FIXED_CONTENT));
-        var stickyContent = [].slice.call(document.querySelectorAll(Selector$5.STICKY_CONTENT)); // Adjust fixed content padding
+        var stickyContent = [].slice.call(document.querySelectorAll(Selector$5.STICKY_CONTENT)); // Adjust
+																									// fixed
+																									// content
+																									// padding
 
         $(fixedContent).each(function (index, element) {
           var actualPadding = element.style.paddingRight;
@@ -2660,10 +2680,10 @@
     return Modal;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(document).on(Event$5.CLICK_DATA_API, Selector$5.DATA_TOGGLE, function (event) {
@@ -2698,10 +2718,10 @@
     Modal._jQueryInterface.call($(target), config, this);
   });
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME$5] = Modal._jQueryInterface;
   $.fn[NAME$5].Constructor = Modal;
@@ -2712,11 +2732,11 @@
   };
 
   /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.4.1): tools/sanitizer.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
-   */
+	 * --------------------------------------------------------------------------
+	 * Bootstrap (v4.4.1): tools/sanitizer.js Licensed under MIT
+	 * (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+	 * --------------------------------------------------------------------------
+	 */
   var uriAttrs = ['background', 'cite', 'href', 'itemtype', 'longdesc', 'poster', 'src', 'xlink:href'];
   var ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
   var DefaultWhitelist = {
@@ -2753,17 +2773,20 @@
     ul: []
   };
   /**
-   * A pattern that recognizes a commonly useful subset of URLs that are safe.
-   *
-   * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-   */
+	 * A pattern that recognizes a commonly useful subset of URLs that are safe.
+	 * 
+	 * Shoutout to Angular 7
+	 * https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+	 */
 
   var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi;
   /**
-   * A pattern that matches safe data URLs. Only matches image, video and audio types.
-   *
-   * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-   */
+	 * A pattern that matches safe data URLs. Only matches image, video and
+	 * audio types.
+	 * 
+	 * Shoutout to Angular 7
+	 * https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+	 */
 
   var DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+/]+=*$/i;
 
@@ -2833,10 +2856,10 @@
   }
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$6 = 'tooltip';
   var VERSION$6 = '4.4.1';
@@ -2921,13 +2944,13 @@
     MANUAL: 'manual'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Tooltip =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Tooltip(element, config) {
       if (typeof Popper === 'undefined') {
@@ -3065,7 +3088,8 @@
 
         $(this.element).trigger(this.constructor.Event.INSERTED);
         this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
-        $(tip).addClass(ClassName$6.SHOW); // If this is a touch-enabled device we add extra
+        $(tip).addClass(ClassName$6.SHOW); // If this is a touch-enabled device
+											// we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
@@ -3129,7 +3153,8 @@
         return;
       }
 
-      $(tip).removeClass(ClassName$6.SHOW); // If this is a touch-enabled device we remove the extra
+      $(tip).removeClass(ClassName$6.SHOW); // If this is a touch-enabled device
+											// we remove the extra
       // empty mouseover listeners we added for iOS support
 
       if ('ontouchstart' in document.documentElement) {
@@ -3542,10 +3567,10 @@
     return Tooltip;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $.fn[NAME$6] = Tooltip._jQueryInterface;
@@ -3557,10 +3582,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$7 = 'popover';
   var VERSION$7 = '4.4.1';
@@ -3602,13 +3627,13 @@
     MOUSELEAVE: "mouseleave" + EVENT_KEY$7
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Popover =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function (_Tooltip) {
     _inheritsLoose(Popover, _Tooltip);
 
@@ -3633,7 +3658,8 @@
     };
 
     _proto.setContent = function setContent() {
-      var $tip = $(this.getTipElement()); // We use append for html objects to maintain js events
+      var $tip = $(this.getTipElement()); // We use append for html objects to
+											// maintain js events
 
       this.setElementContent($tip.find(Selector$7.TITLE), this.getTitle());
 
@@ -3728,10 +3754,10 @@
     return Popover;
   }(Tooltip);
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $.fn[NAME$7] = Popover._jQueryInterface;
@@ -3743,10 +3769,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$8 = 'scrollspy';
   var VERSION$8 = '4.4.1';
@@ -3790,13 +3816,13 @@
     POSITION: 'position'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var ScrollSpy =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function ScrollSpy(element, config) {
       var _this = this;
@@ -3960,10 +3986,19 @@
         $link.addClass(ClassName$8.ACTIVE);
       } else {
         // Set triggered link as active
-        $link.addClass(ClassName$8.ACTIVE); // Set triggered links parents as active
-        // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
+        $link.addClass(ClassName$8.ACTIVE); // Set triggered links parents as
+											// active
+        // With both <ul> and <nav> markup a parent is the previous sibling of
+		// any nav ancestor
 
-        $link.parents(Selector$8.NAV_LIST_GROUP).prev(Selector$8.NAV_LINKS + ", " + Selector$8.LIST_ITEMS).addClass(ClassName$8.ACTIVE); // Handle special case when .nav-link is inside .nav-item
+        $link.parents(Selector$8.NAV_LIST_GROUP).prev(Selector$8.NAV_LINKS + ", " + Selector$8.LIST_ITEMS).addClass(ClassName$8.ACTIVE); // Handle
+																																			// special
+																																			// case
+																																			// when
+																																			// .nav-link
+																																			// is
+																																			// inside
+																																			// .nav-item
 
         $link.parents(Selector$8.NAV_LIST_GROUP).prev(Selector$8.NAV_ITEMS).children(Selector$8.NAV_LINKS).addClass(ClassName$8.ACTIVE);
       }
@@ -4018,10 +4053,10 @@
     return ScrollSpy;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(window).on(Event$8.LOAD_DATA_API, function () {
@@ -4035,10 +4070,10 @@
     }
   });
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME$8] = ScrollSpy._jQueryInterface;
   $.fn[NAME$8].Constructor = ScrollSpy;
@@ -4049,10 +4084,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$9 = 'tab';
   var VERSION$9 = '4.4.1';
@@ -4084,13 +4119,13 @@
     DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Tab =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Tab(element) {
       this._element = element;
@@ -4257,10 +4292,10 @@
     return Tab;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Data Api implementation
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $(document).on(Event$9.CLICK_DATA_API, Selector$9.DATA_TOGGLE, function (event) {
@@ -4269,10 +4304,10 @@
     Tab._jQueryInterface.call($(this), 'show');
   });
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
   $.fn[NAME$9] = Tab._jQueryInterface;
   $.fn[NAME$9].Constructor = Tab;
@@ -4283,10 +4318,10 @@
   };
 
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Constants
+	 * ------------------------------------------------------------------------
+	 */
 
   var NAME$a = 'toast';
   var VERSION$a = '4.4.1';
@@ -4320,13 +4355,13 @@
     DATA_DISMISS: '[data-dismiss="toast"]'
   };
   /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * Class Definition
+	 * ------------------------------------------------------------------------
+	 */
 
   var Toast =
-  /*#__PURE__*/
+  /* #__PURE__ */
   function () {
     function Toast(element, config) {
       this._element = element;
@@ -4488,10 +4523,10 @@
     return Toast;
   }();
   /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+	 * ------------------------------------------------------------------------
+	 * jQuery
+	 * ------------------------------------------------------------------------
+	 */
 
 
   $.fn[NAME$a] = Toast._jQueryInterface;
@@ -4518,4 +4553,4 @@
   Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=bootstrap.js.map
+// # sourceMappingURL=bootstrap.js.map

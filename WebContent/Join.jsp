@@ -9,7 +9,6 @@
 %>
 </head>
 
-
 <body>
 	<jsp:include page="Header.jsp" flush="true" />
 	<div class="bg-dark  p-4"></div>
@@ -22,7 +21,7 @@
 				out.println("<h4 class=\"text-danger\">Something went wrong! Please try again.</h4>");
 				out.println("</div>");
 				out.println("</div>");
-						session.removeAttribute("error");
+				session.removeAttribute("error");
 			}
 		%>
 		<div class="row">
@@ -51,9 +50,9 @@
 						<div class="form-group col-md-6">
 							<label for="inputEmail4">E-mail</label> <input type="email"
 								class="form-control" id="inputEmail4" name="email"
-								placeholder="E-mail"  required>
-								<div class="email-val" id="emailValidator"></div>
-							<div  class="valid-feedback" >Great!</div>
+								placeholder="E-mail" required>
+							<div class="email-val" id="emailValidator"></div>
+							<div class="valid-feedback">Great!</div>
 							<div class="invalid-feedback">Please provide a valid
 								e-mail.</div>
 						</div>
@@ -110,7 +109,8 @@
 						</div>
 					</div>
 					<div class="mt-auto">
-						<button type="submit" class="btn btn-primary btn-block mb-2" id="joinSubmitButton">Submit</button>
+						<button type="submit" class="btn btn-primary btn-block mb-2"
+							id="joinSubmitButton">Submit</button>
 					</div>
 				</form>
 			</div>

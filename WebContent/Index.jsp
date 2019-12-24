@@ -11,7 +11,7 @@
 %>
 </head>
 
-<body >
+<body>
 	<div class="parallax-window" data-parallax="scroll" data-speed="0.2"
 		data-natural-width="1200" data-image-src="img/forest.jpg"
 		iosFix="true" androidFix="true" zIndex="-10">
@@ -113,17 +113,12 @@
 		<a class="btn btn-primary btn-lg" href="Join.jsp" role="button">Learn
 			more</a>
 	</div>
-	<div class="w-100 py-4 bg-white"></div>
-
-
-
-
-	<div class="tm-container " >
+	<div class="tm-container ">
 		<div class="row">
 			<div class="col-lg-8  fadeIn" id="target_bottom">
-				<div  class="imgFood mx-0 card" style="max-width: 100%;">
-					<div class="row " >
-						
+				<div class="imgFood mx-0 card" style="max-width: 100%;">
+					<div class="row ">
+
 						<div class="col-lg-4 ">
 							<div class="card-header opacity-70 text-light ">
 								<h5 class="card-title">Savour Winnipeg's Freshest Flavours</h5>
@@ -132,17 +127,16 @@
 									Menus change regularly to showcase the seasons' freshest
 									flavors, including sweet corn, late summer berries, apples and
 									plums.</p>
-								
-									<small >*If you have any special
-										request, please let us know in advance and we will take care
-										of you</small>
-								
+
+								<small>*If you have any special request, please let us
+									know in advance and we will take care of you</small>
+
 								<h5 class="mt-2">Hours:</h5>
 								<p>Monday - Friday: 6am - 7am</p>
 								<p>Pastry and Coffee only 7am - 10am Full hot breakfast</p>
 							</div>
 						</div>
-						<div class="col-lg-8 " >
+						<div class="col-lg-8 ">
 							<!-- <img src="img/food1.jpg" class="card-img " alt="food fest"> -->
 						</div>
 					</div>
@@ -173,9 +167,10 @@
 							readonly>
 					</div>
 					<div class="form-group my-2 my-md-auto card opacity-70">
-						<label for="formGroupExampleInput2" class="ml-4 text-white">Number of
-							Guests</label> <input type="text" id="gBottom" class="form-control pl-4"
-							value="2" placeholder="How many adults?">
+						<label for="formGroupExampleInput2" class="ml-4 text-white">Number
+							of Guests</label> <input type="text" id="gBottom"
+							class="form-control pl-4" value="2"
+							placeholder="How many adults?">
 					</div>
 					<div class=" my-2 my-md-auto">
 						<button type="button"
