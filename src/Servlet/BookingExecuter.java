@@ -1,16 +1,12 @@
 package Servlet;
-
 import java.io.IOException;
-
 import java.sql.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import DataBase.BookingDao;
 import DataBase.GuestDAO;
 import EmailSender.SendHTMLEMail;
@@ -66,7 +62,6 @@ public class BookingExecuter extends HttpServlet {
 			newGuest.setCountry(country);
 			newGuest.setCity(city);
 			newGuest.setPostalCode(postalCode);
-
 			userId = newGD.addUser(newGuest);
 
 		} else {
@@ -126,8 +121,10 @@ public class BookingExecuter extends HttpServlet {
 		String message;
 		if (bookingId != 0) {
 			sub = "Congrats! Your booking has been successful!";
-			messageBody = "<div>Thank you<i><b> " + firstName + " " + lastName + " </b></i>for booking your stay at Patagonia Hotel!<br> \r\n"
-					+ "\r\n<h3>Here are some essential details for you to save:\r\n</h3>" + "<b>Your booking Id: </b>" + bookingId
+			messageBody = "<div>Thank you<i><b> " + firstName + " " 
+					+ lastName + " </b></i>for booking your stay at Patagonia Hotel!<br> \r\n"
+					+ "\r\n<h3>Here are some essential details for you to save:\r\n</h3>" 
+					+ "<b>Your booking Id: </b>" + bookingId
 					+"\r\n<br><b>Check-In: </b>"+checkIn
 					+"\r\n<br><b>Check-Out: </b>"+checkOut
 					+"<br><b>Number of Nights: </b>"+nights 
@@ -146,7 +143,8 @@ public class BookingExecuter extends HttpServlet {
 			SendHTMLEMail confimationE = new SendHTMLEMail();
 			confimationE.emailSender(sub, messageBody, email);
 		} else {
-			message = "Oh no!. Something went wrong.Please contact our support center or call 1-800-help";
+			message = "Oh no!. Something went wrong."
+					+"Please contact our support center or call 1-800-help";
 		}
 
 		request.setAttribute("message", message);

@@ -1,8 +1,6 @@
 package DataBase;
-
 import Program.Booking;
 import Program.Room;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -12,9 +10,9 @@ public class BookingDao {
 
 	public void connect() {
 		try {
-			
+
 			con = MySQLJDBCUtil.getConnection();
-			
+
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
@@ -132,17 +130,20 @@ public class BookingDao {
 					/*
 					 * Date equal or in between
 					 */
-					+ " (b.room_number = " + desiredRoom + " AND b.check_in <= '" + desiredCheckIn + "'"
+					+ " (b.room_number = " + desiredRoom + " AND b.check_in <= '" 
+					+ desiredCheckIn + "'"
 					+ " AND b.check_out >= '" + desiredCheckOut + "') "
 
 					/*
 					 * Date starting before checkIn and concluding on anytime after checkIn
 					 */
-					+ "OR (b.room_number = " + desiredRoom + " AND b.check_in >= '" + desiredCheckIn + "'"
+					+ "OR (b.room_number = " + desiredRoom 
+					+ " AND b.check_in >= '" + desiredCheckIn + "'"
 					+ " AND b.check_in < '" + desiredCheckOut + "') "
 
 					// Date starting after checkIn but before checkOut
-					+ "OR (b.room_number = " + desiredRoom + " AND b.check_in < '" + desiredCheckIn + "'"
+					+ "OR (b.room_number = " + desiredRoom 
+					+ " AND b.check_in < '" + desiredCheckIn + "'"
 					+ " AND b.check_out > '" + desiredCheckIn + "')";
 
 			connect();
@@ -174,17 +175,18 @@ public class BookingDao {
 
 	public ArrayList<Room> checkAvailabilityByGuestAndDate(Date desiredCheckIn, Date desiredCheckOut,
 			int numberOfGuest) {
-		
+
 		ArrayList<Room> rooms = new ArrayList<Room>();
 		int controller = numberOfGuest;
 		try {
 
 			// limit the results to numberOfGuest + 1
 			while (numberOfGuest < (controller + 2)) {
-				String query = "SELECT r.room_number " + 
-								"FROM rooms AS r " + 
-								"JOIN room_type AS rt "
-						+ "ON r.room_category=rt.category_name" + " WHERE rt.max_allowance=" + numberOfGuest;
+				String query = "SELECT r.room_number " 
+						+ "FROM rooms AS r " 
+						+ "JOIN room_type AS rt "
+						+ "ON r.room_category=rt.category_name" 
+						+ " WHERE rt.max_allowance=" + numberOfGuest;
 
 				connect();
 				Statement st = con.createStatement();
@@ -224,9 +226,7 @@ public class BookingDao {
 				con.close();
 				st.close();
 				numberOfGuest++;
-
-			}
-			;
+			};
 
 			// if there is no results return null
 

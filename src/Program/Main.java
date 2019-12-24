@@ -5,22 +5,20 @@ import DataBase.RoomDAO;
 import DataBase.RoomTypeDAO;
 import DataBase.GuestDAO;
 
-import java.sql.Date;
-import java.time.LocalDate;
+
 
 public class Main {
 
-    public static void main (String[]args){
+	public static void main(String[] args) {
 
-        RoomTypeDAO rtDAO= new RoomTypeDAO();
-        RoomType rType= new RoomType();
-        Room room= new Room();
-        RoomDAO rDAO= new RoomDAO();
-        Guest user= new Guest();
-        GuestDAO uDao= new GuestDAO();
-        Booking newBooking= new Booking();
-        BookingDao newBDAO= new BookingDao();
-
+		RoomTypeDAO rtDAO = new RoomTypeDAO();
+		RoomType rType = new RoomType();
+		Room room = new Room();
+		RoomDAO rDAO = new RoomDAO();
+		Guest user = new Guest();
+		GuestDAO uDao = new GuestDAO();
+		Booking newBooking = new Booking();
+		BookingDao newBDAO = new BookingDao();
 
 //        rType.setPricePerNight(10.50);
 //        rType.setMaxGuestAAllowance(1);
@@ -77,7 +75,7 @@ public class Main {
 //        Date checkOut= Date.valueOf("2019-11-9");
 //        System.out.println(newBDAO.checkRoomAvailability(101,checkIn,checkOut));
 ////        System.out.println(checkIn);
-        
+
 //        RoomType r= new RoomType();
 //        r.setRoomType("Catalina", 3, 110.23);
 //        RoomTypeDAO rD= new RoomTypeDAO();
@@ -92,7 +90,6 @@ public class Main {
 //        
 //        GuestDAO n= new GuestDAO();
 //        n.addUser(newGuest);
-        
 
-    }
+	}
 }

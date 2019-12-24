@@ -1,14 +1,11 @@
 package Servlet;
-
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import DataBase.BookingDao;
 import Program.Booking;
 
@@ -47,14 +44,11 @@ public class FindReservation extends HttpServlet {
 		Booking booking=bd.getBooking(bId);
 		boolean validator;
 		try {
-		 validator= booking.getUser().getEmail().equals(email);
+			validator= booking.getUser().getEmail().equals(email);
 		} catch (NullPointerException e) {
-			System.out.println(e);
 			validator= false;
 		}
-		
-		
-		
+	
 		if (validator) {
 			String message="We found it!</br>Please see all the details below.";
 			out.println("<h6 class=\" text-success text-center\"> "+message+"</h6>");
@@ -78,7 +72,6 @@ public class FindReservation extends HttpServlet {
 			out.println("<th scope=\"row\">Check-out</th>");
 			out.println("<td>"+booking.getCheckOut()+"</td>");
 			out.println("</tr>");
-			
 			out.println("<tr>");
 			out.println("<th scope=\"row\">Price Per Night</th>");
 			out.println("<td>$"+booking.getPPN()+"</td>");
@@ -92,19 +85,13 @@ public class FindReservation extends HttpServlet {
 			out.println("<td>$"+booking.getTotal()+"</td>");
 			out.println("</tr>");
 			out.println("</tbody>");
-			out.println("</table>");
-			
-			
+			out.println("</table>");	
 			out.close();
-			
-						
+								
 		}else {
 			String message="There is no booking matching this info in our database.";
 			out.println("<h6 class=\" text-danger text-center \"> "+message+"</h6>");
 			out.close();
-		}
-		
-		
+		}	
 	}
-
 }

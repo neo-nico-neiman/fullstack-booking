@@ -1,7 +1,7 @@
 package Program;
 
 public abstract class User {
-	
+
 	protected int userId;
 	protected String userName;
 	protected String password;
@@ -16,140 +16,140 @@ public abstract class User {
 	protected String province;
 	protected String postalCode;
 	protected String country;
-	
-	public User() {}
-	
-	
-	
+
+	public User() {
+	}
+
 	public int getUserId() {
-        return userId;
-    }
+		return userId;
+	}
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-    
-    public String getUserName() {
-        return userName;
-    }
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public boolean verifyPassword(String pass) {
-    	boolean success=false;
-    	if(pass.equals(password)) {
-    		success=true;
-    	}
-        return success;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    private void setPassword(String password) {
-        this.password = password;
-    }
-    
-    public boolean setNewPassword(String password, String newPassword) {
-    	boolean success=false;
-    	
-    	if(password.equals(password)) {
-    		setPassword(newPassword);
-    	}
-    	
-    	return success;
-    }
-    public String getPassword () {
-    	
-    	return password;
-    }
+	public boolean verifyPassword(String pass) {
+		boolean success = false;
+		if (pass.equals(password)) {
+			success = true;
+		}
+		return success;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	private void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-       
-    }
-    
-    public String getFirstName() {
-        return firstName;
-    }
+	public boolean setNewPassword(String password, String newPassword) {
+		boolean success = false;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    
-    public String getLastName() {
-        return lastName;
-    }
+		if (password.equals(password)) {
+			setPassword(newPassword);
+		}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+		return success;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getPassword() {
 
-    public void setPhone(String phone) {
-        this.phone = (phone);
-    }
+		return password;
+	}
 
-    public String getStreetNumber() {
-        return streetNumber;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
-    }
+	public void setEmail(String email) {
+		this.email = email;
 
-    public String getStreetName() {
-        return streetName;
-    }
+	}
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public String getStreetLineTwo() {
-        return streetLineTwo;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public void setStreetLineTwo(String streetLineTwo) {
-        this.streetLineTwo = streetLineTwo;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public String getCity() {
-        return city;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public String getProvince() {
-        return province;
-    }
+	public void setPhone(String phone) {
+		this.phone = (phone);
+	}
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
+	public String getStreetNumber() {
+		return streetNumber;
+	}
 
-    public String getPostalCode() {
-        return postalCode;
-    }
+	public void setStreetNumber(String streetNumber) {
+		this.streetNumber = streetNumber;
+	}
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
+	public String getStreetName() {
+		return streetName;
+	}
 
-    public String getCountry() {
-        return country;
-    }
+	public void setStreetName(String streetName) {
+		this.streetName = streetName;
+	}
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+	public String getStreetLineTwo() {
+		return streetLineTwo;
+	}
+
+	public void setStreetLineTwo(String streetLineTwo) {
+		this.streetLineTwo = streetLineTwo;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
 }

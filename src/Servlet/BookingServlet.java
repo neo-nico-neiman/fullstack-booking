@@ -1,14 +1,11 @@
 package Servlet;
-
 import java.io.IOException;
 import java.sql.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import DataBase.BookingDao;
 import DataBase.GuestDAO;
 import Program.Booking;
@@ -43,7 +40,6 @@ public class BookingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Booking b= new Booking();
-		
 		BookingDao bd = new BookingDao();
 		GuestDAO gd = new GuestDAO();
 		User u= new Guest();
@@ -54,34 +50,29 @@ public class BookingServlet extends HttpServlet {
 		int rNum= Integer.parseInt(String.valueOf(request.getParameter("rNum")));
 		Date cIn= Date.valueOf(request.getParameter("cIn"));
 		Date cOut= Date.valueOf(request.getParameter("cOut"));
-		
-		
 		try {
 		
-		int id=gd.getUserId(email);
+			int id=gd.getUserId(email);
 		
-		if (id==0) {
-			u.setFirstName(fName);
-			u.setLastName(lName);
-			u.setEmail(email);
-			u.setPhone(phone);
-			
-				id=gd.addUser(u);
-			
-			u.setUserId(id);
-			System.out.println(id);
-		} else {
-			u=gd.getUser(id);
-		}
-		b.setIdExistingUser(id);
-		b.setNewUser(u);
-		b.setCheckIn(cIn);
-		b.setCheckOut(cOut);
-		b.setRoomNumber(rNum);
-		bd.addBooking(b);
-		
-		response.sendRedirect("Success.jsp");
-
+			if (id==0) {
+					u.setFirstName(fName);
+					u.setLastName(lName);
+					u.setEmail(email);
+					u.setPhone(phone);
+					id=gd.addUser(u);
+					u.setUserId(id);
+					
+			} else {
+					u=gd.getUser(id);
+			}
+				
+			b.setIdExistingUser(id);
+			b.setNewUser(u);
+			b.setCheckIn(cIn);
+			b.setCheckOut(cOut);
+			b.setRoomNumber(rNum);
+			bd.addBooking(b);
+			response.sendRedirect("Success.jsp");
 	
 	} catch (Exception e) {
 		// TODO Auto-generated catch block

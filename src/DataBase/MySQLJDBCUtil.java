@@ -5,8 +5,6 @@ package DataBase;
 //import java.util.Properties;
 import java.sql.*;
 
-
-
 public class MySQLJDBCUtil {
 //    public static Connection getConnection() throws SQLException {
 //        Connection conn = null;
@@ -37,8 +35,8 @@ public class MySQLJDBCUtil {
 	public static Connection getConnection() throws SQLException {
 		Connection conn = null;
 
-		try  {
-			
+		try {
+
 			String url = System.getenv("url");
 			String user = System.getenv("user");
 			String password = System.getenv("password");
@@ -51,4 +49,3 @@ public class MySQLJDBCUtil {
 		return conn;
 	}
 }
-
