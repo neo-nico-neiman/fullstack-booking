@@ -22,39 +22,43 @@ public class GuestDAO {
 		try {
 
 			// get values from DataBase
-			String query = "SELECT * FROM user WHERE id=" + id;
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(query);
-			rs.next();
+			String query = "SELECT * FROM user WHERE id= ?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, id);
+			pst.execute();
+			ResultSet rs = pst.getResultSet();
+			
+			while(rs.next()) {
 
-			String firstName = rs.getString("first_name");
-			String lastName = rs.getString("last_name");
-			String email = rs.getString("email");
-			String userName = rs.getString("user_name");
-			String phone = rs.getString("phone");
-			String streetNumber = rs.getString("street_number");
-			String streetName = rs.getString("street_name");
-			String streetSecondLine = rs.getString("street_line_two");
-			String city = rs.getString("city");
-			String province = rs.getString("province");
-			String postalCode = rs.getString("postal_code");
-			String country = rs.getString("country");
-
-			// Set values on newly created guest.
-
-			guest.setLastName(lastName);
-			guest.setFirstName(firstName);
-			guest.setPhone(phone);
-			guest.setEmail(email);
-			guest.setStreetNumber(streetNumber);
-			guest.setStreetName(streetName);
-			guest.setStreetLineTwo(streetSecondLine);
-			guest.setCity(city);
-			guest.setProvince(province);
-			guest.setPostalCode(postalCode);
-			guest.setCountry(country);
+				String firstName = rs.getString("first_name");
+				String lastName = rs.getString("last_name");
+				String email = rs.getString("email");
+				String userName = rs.getString("user_name");
+				String phone = rs.getString("phone");
+				String streetNumber = rs.getString("street_number");
+				String streetName = rs.getString("street_name");
+				String streetSecondLine = rs.getString("street_line_two");
+				String city = rs.getString("city");
+				String province = rs.getString("province");
+				String postalCode = rs.getString("postal_code");
+				String country = rs.getString("country");
+	
+				// Set values on newly created guest.
+	
+				guest.setLastName(lastName);
+				guest.setFirstName(firstName);
+				guest.setPhone(phone);
+				guest.setEmail(email);
+				guest.setStreetNumber(streetNumber);
+				guest.setStreetName(streetName);
+				guest.setStreetLineTwo(streetSecondLine);
+				guest.setCity(city);
+				guest.setProvince(province);
+				guest.setPostalCode(postalCode);
+				guest.setCountry(country);
+			}
 			con.close();
-			st.close();
+			pst.close();
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
@@ -68,19 +72,23 @@ public class GuestDAO {
 		try {
 
 			// get values from DataBase
-			String query = "SELECT * FROM user WHERE user_name='" + uName + "'";
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(query);
-			rs.next();
+			String query = "SELECT * FROM user WHERE user_name= ?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, uName);
+			pst.execute();
+			ResultSet rs = pst.getResultSet();
+			while(rs.next()) {
+				String userName = rs.getString("user_name");
+				String password = rs.getString("password");
 
-			String userName = rs.getString("user_name");
-			String password = rs.getString("password");
+				// Set values on newly created guest.
+				guest = new Guest(userName, password);
+				
+			}
 
-			// Set values on newly created guest.
-
-			guest = new Guest(userName, password);
+			
 			con.close();
-			st.close();
+			pst.close();
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
@@ -120,6 +128,7 @@ public class GuestDAO {
 			con.close();
 			pst.close();
 			rs.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
 
@@ -133,17 +142,20 @@ public class GuestDAO {
 
 		try {
 
-			String query = "SELECT id FROM user WHERE user_name= '" + email + "'";
-
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(query);
+			String query = "SELECT id FROM user WHERE user_name= ?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setString(1, email);
+			pst.execute();
+			ResultSet rs = pst.getResultSet();
 
 			if (rs.next()) {
+				
 				id = rs.getInt("id");
 			}
 
 			con.close();
-			st.close();
+			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
@@ -152,6 +164,7 @@ public class GuestDAO {
 
 	public void updateFirstName(int id, String firstName) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET first_name=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -160,14 +173,17 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
+			
 			System.out.println(ex);
-			;
+			
 		}
 	}
 
 	public void updateLastName(int id, String lastName) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET last_name=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -176,14 +192,16 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
+			
 		}
 	}
 
 	public void updatePhone(int id, long phone) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET phone=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -192,14 +210,16 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
+			
 		}
 	}
 
 	public void updateEmail(int id, String email) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET email=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -208,15 +228,18 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
+		
 		}
 	}
 
 	public void updateUserName(int id, String userName) {
 		connect();
+		
 		try {
+			
 			String query = "UPDATE user SET user_name=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, userName);
@@ -224,14 +247,15 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 
 	public void updatePassword(int id, String password) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET password=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -242,12 +266,12 @@ public class GuestDAO {
 			pst.close();
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 
 	public void updateStreetNumber(int id, int streetNumber) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET street_number=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -256,14 +280,15 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 
 	public void updateStreetName(int id, String streetName) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET street_name=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -272,14 +297,15 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
-			System.out.println(ex);
-			;
+			System.out.println(ex);	
 		}
 	}
 
 	public void updateStreetSecondLine(int id, String streetLineTwo) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET street_line_two=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -288,14 +314,15 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 
 	public void updateCity(int id, String city) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET city=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -304,14 +331,15 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 
 	public void updateProvince(int id, String province) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET province=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -320,9 +348,9 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 
@@ -337,14 +365,15 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 
 	public void updateCountry(int id, String country) {
 		connect();
+		
 		try {
 			String query = "UPDATE user SET country=? WHERE id= ?";
 			PreparedStatement pst = con.prepareStatement(query);
@@ -353,9 +382,9 @@ public class GuestDAO {
 			pst.executeUpdate();
 			con.close();
 			pst.close();
+			
 		} catch (Exception ex) {
 			System.out.println(ex);
-			;
 		}
 	}
 

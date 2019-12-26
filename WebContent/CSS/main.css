@@ -72,6 +72,7 @@ img {
 	margin-top: 10px;
 }
 
+
 /*the next style clears the content for floating */
 .clearfix::after {
 	content: " ";
@@ -156,22 +157,7 @@ img {
 		-moz-transform: translate(0, 40px);
 		-moz-transition: all 2s;
 	}
-	.confirmation {
-		position: absolute;
-		margin-top: 10vh;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-		align-content: center;
-		text-align: center;
-		color: black;
-		/* text-align: center;
-	color: #fff;
-	text-shadow: 1px 1px 2px black;
-	font-size: 333%;
-	opacity: 0.9; */
-	}
+	
 }
 
 .heroText {
@@ -260,8 +246,9 @@ canvas {
 }
 
 .confirmation {
+	z-index: 4;
 	position: absolute;
-	margin-top: 10vh;
+	margin-top: 0vh;
 	width: 100%;
 	padding: 0px 10px;
 	display: flex;
@@ -271,16 +258,39 @@ canvas {
 	text-align: center;
 	color: #fff;
 	text-shadow: 1px 1px 10px black;
-	/* text-align: center;
-	color: #fff;
-	text-shadow: 1px 1px 2px black;
-	font-size: 333%;
-	opacity: 0.9; */
+	
 }
 
 .confirmation a {
-	color: #fdff6f;
+	color: #fff;
 	text-shadow: 1px 1px 2px black;
+	
+}
+.confirmation h3{
+	background-image: linear-gradient(to right, transparent, transparent, black, black, transparent, transparent);
+}
+.confirmation h5{
+	color: black;
+	text-shadow: 1px 0px 5px #fff;
+	font-weight: bold;
+}
+
+@media screen and (min-width: 767px){
+	
+	.confirmation {
+		z-index: 4;
+		position: absolute;
+		margin-top: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-content: center;
+		text-align: center;
+		color: #fff;
+		text-shadow: 1px 1px 10px black;
+		}
 }
 
 .themeColor {
@@ -296,7 +306,51 @@ canvas {
 	background-image: linear-gradient(to right, #fff, #FFDE17);
 	border-top-right-radius: 25px;
 }
+@media screen and (max-width: 375px){
+	.active{
+	text-shadow: 1px 1px 5px #FFDE17;
+	background-image: none;
+	}
+}
 
 #logo:hover {
 	cursor: pointer;
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-ms-keyframes move-clouds-back {
+    from {background-position: 0;}
+    to {background-position:10000px 0;}
+}
+
+@media screen and (min-width: 350px){
+	.clouds{
+		  background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) center;
+		  z-index:3;
+		  		 
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  right:0;
+		  bottom:0;
+		  width:100%;
+		  height:100%;
+		  display:flex;
+		  -moz-animation:move-clouds-back 200s linear infinite;
+		  -ms-animation:move-clouds-back 200s linear infinite;
+		  -o-animation:move-clouds-back 200s linear infinite;
+		  -webkit-animation:move-clouds-back 200s linear infinite;
+		  animation:move-clouds-back 200s linear infinite;
+	}
 }

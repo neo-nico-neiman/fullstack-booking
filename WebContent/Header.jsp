@@ -29,7 +29,7 @@
 		<div class="tm-container ">
 			<div class="form-row ">
 				<div class="col-8 ">
-					<nav class="navbar navbar-expand-lg navbar-light p-0 py-2 pb-sm-0">
+					<nav class="navbar navbar-expand-lg navbar-light px-0 py-2 py-lg-0">
 						<a class="navbar-brand brand" id="logo"
 							onclick="location.href = 'Index.jsp';"> <img
 							src="img/patagonia_logo.png" width="30" height="30"

@@ -31,9 +31,11 @@ public class BookingDao {
 					+ "ON b.user_id=u.id" 
 					+ " JOIN rooms AS r "
 					+ "ON b.room_number=r.room_number" 
-					+ " WHERE b.id=" + id;
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(query);
+					+ " WHERE b.id= ?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, id);
+			pst.execute();
+			ResultSet rs = pst.getResultSet();
 			rs.next();
 
 			int bookingId = rs.getInt("id");
@@ -64,7 +66,7 @@ public class BookingDao {
 			newBooking.setTax(tax);
 			newBooking.setTotal(total);
 
-			st.close();
+			pst.close();
 			con.close();
 		} catch (Exception ex) {
 			System.out.println(ex);
@@ -134,25 +136,37 @@ public class BookingDao {
 					/*
 					 * Date equal or in between
 					 */
-					+ " (b.room_number = " + desiredRoom + " AND b.check_in <= '" 
-					+ desiredCheckIn + "'"
-					+ " AND b.check_out >= '" + desiredCheckOut + "') "
+					+ " (b.room_number = ? "
+					+ "AND b.check_in <= ? "
+					+ "AND b.check_out >= ?) "
 
 					/*
 					 * Date starting before checkIn and concluding on anytime after checkIn
 					 */
-					+ "OR (b.room_number = " + desiredRoom 
-					+ " AND b.check_in >= '" + desiredCheckIn + "'"
-					+ " AND b.check_in < '" + desiredCheckOut + "') "
+					+ "OR "
+					+ "(b.room_number = ? "
+					+ "AND b.check_in >= ? "
+					+ "AND b.check_in < ?) "
 
 					// Date starting after checkIn but before checkOut
-					+ "OR (b.room_number = " + desiredRoom 
-					+ " AND b.check_in < '" + desiredCheckIn + "'"
-					+ " AND b.check_out > '" + desiredCheckIn + "')";
+					+ "OR "
+					+ "(b.room_number = ? " 
+					+ "AND b.check_in < ? "
+					+ "AND b.check_out > ?)";
 
 			connect();
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(query);
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, desiredRoom);
+			pst.setDate(2, desiredCheckIn);
+			pst.setDate(3, desiredCheckOut);
+			pst.setInt(4, desiredRoom);
+			pst.setDate(5, desiredCheckIn);
+			pst.setDate(6, desiredCheckOut);
+			pst.setInt(7, desiredRoom);
+			pst.setDate(8, desiredCheckIn);
+			pst.setDate(9, desiredCheckIn);
+			pst.execute();
+			ResultSet rs = pst.getResultSet();
 			while (rs.next()) {
 				isValid = rs.getInt("is_valid");
 				/*
@@ -167,7 +181,7 @@ public class BookingDao {
 				}
 			}
 			con.close();
-			st.close();
+			pst.close();
 
 		}
 
@@ -190,11 +204,13 @@ public class BookingDao {
 						+ "FROM rooms AS r " 
 						+ "JOIN room_type AS rt "
 						+ "ON r.room_category=rt.category_name" 
-						+ " WHERE rt.max_allowance=" + numberOfGuest;
+						+ " WHERE rt.max_allowance= ?";
 
 				connect();
-				Statement st = con.createStatement();
-				ResultSet rs = st.executeQuery(query);
+				PreparedStatement pst = con.prepareStatement(query);
+				pst.setInt(1, numberOfGuest);
+				pst.execute();
+				ResultSet rs = pst.getResultSet();
 				int roomNumber = 0;
 
 				while (rs.next()) {
@@ -228,7 +244,7 @@ public class BookingDao {
 
 				}
 				con.close();
-				st.close();
+				pst.close();
 				numberOfGuest++;
 			};
 

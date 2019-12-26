@@ -16,14 +16,15 @@
 <body>
 	<jsp:include page="Header.jsp" flush="true" />
 	<div class="bg-dark  p-4"></div>
+	<div id="clouds"></div>
 	<div class="confirmation">
+		
 		<h1><%=strArray[0]%></h1>
-		<h3 class="brand"><%=strArray[1]%></h3>
-		<h5><%=strArray[2]%>
-		</h5>
+		<h3 class="brand" id="confirmation"><%=strArray[1]%></h3>
+		<h5><%=strArray[2]%></h5>
 		<a href="Index.jsp">return Home</a>
 	</div>
-
+	
 
 
 	<canvas id="canvas">
